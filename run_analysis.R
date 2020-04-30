@@ -54,7 +54,10 @@ Y$V1 <- sapply(Y$V1, function(elem){activity_labels[elem,2]})
 
 ## Adding activity labels (Y dataset) and subject ID
 wearable_data <- tbl_df(mutate(X_tidy, activity = Y$V1, subject = subject$V1))
-rm(list=c("features","findex","X_tidy","Y","subject","X","activity_labels")) 
+rm(list=c("features","findex","X_tidy","Y","subject","X","activity_labels"))
+
+##outputing the data
+wearable_data
 
 ## Creating another data set with the average of all variables per activity and subject
 
