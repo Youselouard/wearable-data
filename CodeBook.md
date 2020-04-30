@@ -170,22 +170,22 @@ avg_wearable_data
 
 Transformation details (Please see codebook of UCI HAR Dataset for details about source data sets)
  
-  Used source data sets:
-    1) X_train, X_test containing all the measurements of interest
-    2) Y_train, Y_test containing all labels for the measurements (ie the activity that was conducted for each observation)
-    3) subject_train, subject_test containing the subject IDs for each obserbation.
-    4) features, containing the name of all the features
-    5) activity_labels, containing the label of each activity (stored as integers in Y datasets)
-  
-  To obtain wearable_data:
-    1) Combine rows of train/test data sets for X, Y and subject using rbind()
-    2) For Y, convert the integer corresponding to each activity to its name using activity_labels.txt and sapply()
-    3) Select from X only the mean and std variables and rename using select() and the features data set (features.txt)
-        This is done by using a regex expression to find all variable in the features data set that contain "mean()" or "std()"
-    4) Rename X columns using the feature names in the feature data set (features.txt) and rename_all()
-    5) Add two variables to X using mutate() : activity which contains Y values and subject which contains subject IDs
-    6) Convert this to a data.table (dplyr) and store it in wearable_data. 
-    
-  To obtain avg_wearable_data:
-    1) group wearable_data by activity and subject using group_by
-    2) Summarize the grouped data.table with the mean function and sumarize_all()
+    Used source data sets:
+      1) X_train, X_test containing all the measurements of interest
+      2) Y_train, Y_test containing all labels for the measurements (ie the activity that was conducted for each observation)
+      3) subject_train, subject_test containing the subject IDs for each obserbation.
+      4) features, containing the name of all the features
+      5) activity_labels, containing the label of each activity (stored as integers in Y datasets)
+
+    To obtain wearable_data:
+      1) Combine rows of train/test data sets for X, Y and subject using rbind()
+      2) For Y, convert the integer corresponding to each activity to its name using activity_labels.txt and sapply()
+      3) Select from X only the mean and std variables and rename using select() and the features data set (features.txt)
+          This is done by using a regex expression to find all variable in the features data set that contain "mean()" or "std()"
+      4) Rename X columns using the feature names in the feature data set (features.txt) and rename_all()
+      5) Add two variables to X using mutate() : activity which contains Y values and subject which contains subject IDs
+      6) Convert this to a data.table (dplyr) and store it in wearable_data. 
+
+    To obtain avg_wearable_data:
+      1) group wearable_data by activity and subject using group_by
+      2) Summarize the grouped data.table with the mean function and sumarize_all()
