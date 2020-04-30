@@ -13,5 +13,6 @@ run_analysis.R is a commented script that, when executed, will:
 5) Add to the dataset the subject IDs and activity labels (total is 68 variables).
 6) The activities labels are used instead of their corresponding integers. 
 7) Renames the variables using their feature names taken from feature.txt in the UCI HAR Dataset.
+8) Creates an independent tidy data set containing the mean of all measurements per activity and subject. 
 
 A detail of the transformation and variables, their units and additional information is available in CodeBook.md
